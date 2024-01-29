@@ -4,7 +4,7 @@ import SignUp from "./components/signup";
 import Login from "./components/login";
 import Profile from "./components/profile";
 import UpdateProfile from "./components/updateprofile";
-import './app.css'
+import "./app.css";
 import StudPanel from "./components/studpanel";
 import Facpanel from "./components/facpanel";
 import PageError from "./components/pageError";
@@ -21,7 +21,7 @@ import Protected from "./components/protected";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isLoggedIn, setIsLoggedIn] = useState(
-    localStorage.getItem('REGISTERED') === 'true'
+    localStorage.getItem("REGISTERED") === "true"
   );
   useEffect(() => {
     setTimeout(() => {
@@ -35,17 +35,44 @@ function App() {
   }, [isLoggedIn]);
   return (
     <BrowserRouter>
-      {isLoading ? <Loader /> : (
+      {isLoading ? (
+        <Loader />
+      ) : (
         <Routes>
-          <Route path="/" element={<><Header /><SignUp /></>} />
-          <Route path="/login" element={<><Header /><Login /></>} />
-          <Route path="/resetpassword" element={<><Header /><ForgotPass /> </>} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <SignUp />
+              </>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <>
+                <Header />
+                <Login />
+              </>
+            }
+          />
+          <Route
+            path="/resetpassword"
+            element={
+              <>
+                <Header />
+                <ForgotPass />{" "}
+              </>
+            }
+          />
           <Route path="/loader" element={<Loader />} />
           <Route
             path="/studpanel"
             element={
               <Protected isLoggedIn={isLoggedIn}>
-                <HeaderStudentPanel /><StudPanel />
+                <HeaderStudentPanel />
+                <StudPanel />
               </Protected>
             }
           />
@@ -57,15 +84,50 @@ function App() {
               </Protected>
             }
           />
-          <Route path="/profile" element={
-            <Protected isLoggedIn={isLoggedIn}>
-              <Profile />
-            </Protected>} />
-          <Route path="/facpanel" element={<Protected isLoggedIn={isLoggedIn}><HeaderFacultyPanel /><Facpanel /></Protected>} />
-          <Route path="/subject" element={<Protected isLoggedIn={isLoggedIn}><HeaderFacultyPanel /><Subject /></Protected >} />
-          <Route path="/markattd" element={<Protected isLoggedIn={isLoggedIn}><MarkAttd /></Protected>} />
-          <Route path="/attdlist" element={<Protected isLoggedIn={isLoggedIn}><HeaderStudentPanel /><AttdList /></Protected>} />
-          <Route path="/*" element={<PageError />} />
+          <Route
+            path="/profile"
+            element={
+              <Protected isLoggedIn={isLoggedIn}>
+                <Profile />
+              </Protected>
+            }
+          />
+          <Route
+            path="/facpanel"
+            element={
+              <Protected isLoggedIn={isLoggedIn}>
+                <HeaderFacultyPanel />
+                <Facpanel />
+              </Protected>
+            }
+          />
+          <Route
+            path="/subject"
+            element={
+              <Protected isLoggedIn={isLoggedIn}>
+                <HeaderFacultyPanel />
+                <Subject />
+              </Protected>
+            }
+          />
+          <Route
+            path="/markattd"
+            element={
+              <Protected isLoggedIn={isLoggedIn}>
+                <MarkAttd />
+              </Protected>
+            }
+          />
+          <Route
+            path="/attdlist"
+            element={
+              <Protected isLoggedIn={isLoggedIn}>
+                <HeaderStudentPanel />
+                <AttdList />
+              </Protected>
+            }
+          />
+          {/* <Route path="/*" element={<PageError />} /> */}
         </Routes>
       )}
       <Footer />
