@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TruAttende/static/css/main.b056c8f2.css",
+    "main.js": "/TruAttende/static/js/main.b7dea19f.js",
+    "index.html": "/TruAttende/index.html",
+    "main.b056c8f2.css.map": "/TruAttende/static/css/main.b056c8f2.css.map",
+    "main.b7dea19f.js.map": "/TruAttende/static/js/main.b7dea19f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b056c8f2.css",
+    "static/js/main.b7dea19f.js"
+  ]
+}
